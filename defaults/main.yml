@@ -1,0 +1,69 @@
+---
+# defaults file for ubuntu24-sa-server-init
+
+## --------------------------------------------------------
+## Switching on/off specific sections
+#
+section_cloud_init: true
+section_packages: true
+section_cli: true
+section_time: true
+## --------------------------------------------------------
+
+## --------------------------------------------------------
+## Section: Cloud init
+#
+cloud_init_disable: true
+cloud_init_disable_path: /etc/cloud/cloud-init.disabled
+## --------------------------------------------------------
+
+## --------------------------------------------------------
+## Section: Packages
+#
+updates_cache_valid_time: 3600
+updates_autoremove_purge: true
+## --------------------------------------------------------
+
+## --------------------------------------------------------
+## Section: Command line interface (CLI)
+#
+# Message of the day
+motd_msg: Maintained by Ansible
+motd_path: /etc/motd
+motd_dynamic_erase: true
+motd_dynamic_path: /etc/update-motd.d
+## --------------------------------------------------------
+
+## --------------------------------------------------------
+## Section: Time settings
+#
+# Timezone (get your value from 'timedatectl list-timezones')
+time_timezone: Europe/Prague
+# Choose which daemon will be used for time synchronisation
+# Warning: If you will choose chrony and forgot deny timesyncd, then timesyncd has got priority
+time_timesyncd_daemon: false
+time_timesyncd_path: /etc/systemd/timesyncd.conf.d/60-timesyncd.conf
+time_chrony_daemon: false
+time_chrony_path: /etc/chrony/sources.d/60-sources.sources
+# Definition of primary NTP servers
+time_primary_ntps:
+  - 0.cz.pool.ntp.org
+  - 1.cz.pool.ntp.org
+  - 2.cz.pool.ntp.org
+  - 3.cz.pool.ntp.org
+# Definition of fallback NTP servers
+time_fallback_ntps:
+  - time-a-g.nist.gov
+  - time-b-g.nist.gov
+  - time-c-g.nist.gov
+  - time-d-g.nist.gov
+  - time-e-g.nist.gov
+## --------------------------------------------------------
+
+## --------------------------------------------------------
+## Section:
+#
+
+## --------------------------------------------------------
+
+...

@@ -1,0 +1,8 @@
+---
+- name: Import cloud-init tasks
+  ansible.builtin.import_tasks:
+    file: cloud_init.yml
+  tags:
+    - always
+
+...

@@ -1,0 +1,13 @@
+---
+- name: Disable cloud-init (create /etc/cloud/cloud-init.disabled)
+  ansible.builtin.file:
+    path: "{{ cloud_init_disable_path }}"
+    state: touch
+    mode: '0644'
+    owner: root
+    group: root
+  when: cloud_init_disable
+  tags:
+    - always
+
+...

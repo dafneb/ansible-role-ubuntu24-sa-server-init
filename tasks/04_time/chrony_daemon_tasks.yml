@@ -1,0 +1,31 @@
+---
+- name: Stop systemd-timesync
+  ansible.builtin.service:
+    name: systemd-timesyncd
+    state: stopped
+    enabled: false
+  tags:
+    - always
+
+- name: Install chrony package
+  ansible.builtin.apt:
+    name: "chrony"
+    state: present
+  tags:
+    - always
+
+- name: Apply NTP settings
+  ansible.builtin.template:
+    src: 04_time/chrony.conf.j2
+    dest: "{{ time_chrony_path }}"
+    mode: '0644'
+    owner: root
+    group: root
+  notify:
+    - Restart chronyd service
+    - Restart crond service
+    - Restart systemd-journald service
+  tags:
+    - always
+
+...
