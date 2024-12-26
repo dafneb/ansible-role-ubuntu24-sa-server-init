@@ -1,12 +1,12 @@
 ---
-- name: Only run update_cache if the last one is more than 3600 seconds ago
+- name: "[APT:] Run update_cache (time > {{ updates_cache_valid_time }} seconds)"
   ansible.builtin.apt:
     update_cache: true
     cache_valid_time: "{{ updates_cache_valid_time }}"
   tags:
     - always
 
-- name: Update all packages to their latest version
+- name: "[APT:] Update all packages to their latest version"
   ansible.builtin.apt:
     name: "*"
     state: latest
@@ -14,13 +14,13 @@
   tags:
     - always
 
-- name: Remove useless packages from the cache
+- name: "[APT:] Remove useless packages from the cache"
   ansible.builtin.apt:
     autoclean: true
   tags:
     - always
 
-- name: Remove dependencies that are no longer required and purge their configuration files
+- name: "[APT:] Remove dependencies that are no longer required"
   ansible.builtin.apt:
     autoremove: true
     purge: "{{ updates_autoremove_purge }}"

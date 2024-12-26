@@ -3,6 +3,13 @@ Role Name
 
 An Ansible role to initial setup of stand-alone Ubuntu 24 server.
 
+Adjusted settings:
+ - disabling cloud-init
+ - update of packages via apt
+ - adjusting CLI
+ - adjusting timezone
+ - adjusting NTP client (timesyncd, chrony)
+
 Requirements
 ------------
 
@@ -15,7 +22,6 @@ This role is designed so the end user should not have to edit the tasks themselv
 
 Example Playbook
 ----------------
-
 
     - hosts: servers
       roles:

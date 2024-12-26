@@ -1,5 +1,5 @@
 ---
-- name: Stop systemd-timesync
+- name: "[CHRONY:] Stop systemd-timesync"
   ansible.builtin.service:
     name: systemd-timesyncd
     state: stopped
@@ -7,21 +7,21 @@
   tags:
     - always
 
-- name: Install chrony package
+- name: "[CHRONY:] Install chrony package"
   ansible.builtin.apt:
     name: "chrony"
     state: present
   tags:
     - always
 
-- name: Create target folder
+- name: "[CHRONY:] Create target folder ({{ time_chrony_path | dirname }})"
   ansible.builtin.file:
     path: "{{ time_chrony_path | dirname }}"
     state: directory
   tags:
     - always
 
-- name: Apply NTP settings
+- name: "[CHRONY:] Apply NTP settings ({{ time_chrony_path }})"
   ansible.builtin.template:
     src: 04_time/chrony.conf.j2
     dest: "{{ time_chrony_path }}"
