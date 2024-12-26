@@ -9,4 +9,4 @@
 
 ## Reporting a Vulnerability
 
-Use [issues](https://github.com/dafneb/ansible-role-ubuntu24-sa-server-init/issues) for any kind of reporting.
+Use [advisories](https://github.com/dafneb/ansible-role-ubuntu24-sa-server-init/security/advisories) for any kind of reporting.
