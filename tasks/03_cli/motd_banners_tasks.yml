@@ -1,0 +1,30 @@
+---
+- name: "[CLI:] Create message of the day ({{ motd_path }})"
+  ansible.builtin.copy:
+    content: "{{ motd_msg }}"
+    dest: "{{ motd_path }}"
+    mode: '0644'
+    owner: root
+    group: root
+  tags:
+    - always
+
+- name: "[CLI:] Delete dynamic message of the day ({{ motd_dynamic_path }})"
+  ansible.builtin.file:
+    path: "{{ motd_dynamic_path }}/"
+    state: absent
+  when: motd_dynamic_erase
+  tags:
+    - always
+
+- name: "[CLI:] Create a directory if it does not exist ({{ motd_dynamic_path }})"
+  ansible.builtin.file:
+    path: "{{ motd_dynamic_path }}"
+    state: directory
+    mode: '0755'
+    owner: root
+    group: root
+  tags:
+    - always
+
+...

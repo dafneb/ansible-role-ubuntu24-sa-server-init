@@ -1,0 +1,22 @@
+---
+galaxy_info:
+  author: "David Burel"
+  description: "An Ansible role to initial setup of stand-alone Ubuntu 24 server"
+  company: ""
+  issue_tracker_url: https://github.com/dafneb/ansible-role-ubuntu24-sa-server-init/issues
+  license: MIT
+  namespace: dafneb
+  role_name: ubuntu24-sa-server-init
+  min_ansible_version: "2.12"
+  platforms:
+    - name: Ubuntu
+      versions:
+        - noble
+  galaxy_tags:
+    - system
+    - server
+    - init
+    - ubuntu24
+dependencies: []
+
+...

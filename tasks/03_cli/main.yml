@@ -1,0 +1,8 @@
+---
+- name: Import tasks for MOTD
+  ansible.builtin.import_tasks:
+    file: motd_banners_tasks.yml
+  tags:
+    - always
+
+...

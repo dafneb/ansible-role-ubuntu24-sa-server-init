@@ -1,0 +1,37 @@
+---
+- name: "[TIMESYNCD:] Remove chrony package"
+  ansible.builtin.apt:
+    name: "chrony"
+    state: absent
+  tags:
+    - always
+
+- name: "[TIMESYNCD:] Remove dependencies that are no longer required"
+  ansible.builtin.apt:
+    autoremove: true
+    purge: true
+  tags:
+    - always
+
+- name: "[TIMESYNCD:] Create target folder ({{ time_timesyncd_path | dirname }})"
+  ansible.builtin.file:
+    path: "{{ time_timesyncd_path | dirname }}"
+    state: directory
+  tags:
+    - always
+
+- name: "[TIMESYNCD:] Apply NTP settings ({{ time_timesyncd_path }})"
+  ansible.builtin.template:
+    src: 04_time/timesyncd.conf.j2
+    dest: "{{ time_timesyncd_path }}"
+    mode: '0644'
+    owner: root
+    group: root
+  notify:
+    - Restart systemd-timesyncd service
+    - Restart cron service
+    - Restart systemd-journald service
+  tags:
+    - always
+
+...

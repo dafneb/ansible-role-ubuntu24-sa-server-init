@@ -1,0 +1,24 @@
+---
+- name: Import tasks for time & timezone
+  ansible.builtin.import_tasks:
+    file: time_tasks.yml
+  tags:
+    - always
+
+- name: Import tasks for timesyncd daemon
+  ansible.builtin.import_tasks:
+    file: timesyncd_daemon_tasks.yml
+  when: time_timesyncd_daemon
+  tags:
+    - always
+
+- name: Import tasks for chrony daemon
+  ansible.builtin.import_tasks:
+    file: chrony_daemon_tasks.yml
+  when:
+    - not time_timesyncd_daemon
+    - time_chrony_daemon
+  tags:
+    - always
+
+...

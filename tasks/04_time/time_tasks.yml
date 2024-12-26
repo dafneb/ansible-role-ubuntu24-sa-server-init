@@ -1,0 +1,17 @@
+---
+- name: "[TIME:] Install required package util-linux-extra"
+  ansible.builtin.apt:
+    name: "util-linux-extra"
+    state: present
+  tags:
+    - always
+
+- name: "[TIME:] Change time zone"
+  community.general.timezone:
+    name: "{{ time_timezone }}"
+  notify:
+    - Restart cron service
+  tags:
+    - always
+
+...
