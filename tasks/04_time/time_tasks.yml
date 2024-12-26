@@ -10,7 +10,7 @@
   community.general.timezone:
     name: "{{ time_timezone }}"
   notify:
-    - Restart crond service
+    - Restart cron service
   tags:
     - always
 

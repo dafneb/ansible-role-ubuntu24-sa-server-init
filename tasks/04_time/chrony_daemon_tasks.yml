@@ -14,6 +14,13 @@
   tags:
     - always
 
+- name: Create target folder
+  ansible.builtin.file:
+    path: "{{ time_chrony_path | dirname }}"
+    state: directory
+  tags:
+    - always
+
 - name: Apply NTP settings
   ansible.builtin.template:
     src: 04_time/chrony.conf.j2
@@ -23,7 +30,7 @@
     group: root
   notify:
     - Restart chronyd service
-    - Restart crond service
+    - Restart cron service
     - Restart systemd-journald service
   tags:
     - always

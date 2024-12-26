@@ -1,8 +1,8 @@
 ---
 # handlers file for ubuntu24-sa-server-init
-- name: Restart crond service
+- name: Restart cron service
   ansible.builtin.service:
-    name: crond
+    name: cron
     state: restarted
 
 - name: Restart systemd-timesyncd service

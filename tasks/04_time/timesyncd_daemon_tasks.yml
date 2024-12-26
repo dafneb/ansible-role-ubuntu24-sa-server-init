@@ -13,6 +13,13 @@
   tags:
     - always
 
+- name: Create target folder
+  ansible.builtin.file:
+    path: "{{ time_timesyncd_path | dirname }}"
+    state: directory
+  tags:
+    - always
+
 - name: Apply NTP settings
   ansible.builtin.template:
     src: 04_time/timesyncd.conf.j2
@@ -22,7 +29,7 @@
     group: root
   notify:
     - Restart systemd-timesyncd service
-    - Restart crond service
+    - Restart cron service
     - Restart systemd-journald service
   tags:
     - always

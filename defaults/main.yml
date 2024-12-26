@@ -41,7 +41,7 @@ motd_dynamic_path: /etc/update-motd.d
 time_timezone: Europe/Prague
 # Choose which daemon will be used for time synchronisation
 # Warning: If you will choose chrony and forgot deny timesyncd, then timesyncd has got priority
-time_timesyncd_daemon: false
+time_timesyncd_daemon: true
 time_timesyncd_path: /etc/systemd/timesyncd.conf.d/60-timesyncd.conf
 time_chrony_daemon: false
 time_chrony_path: /etc/chrony/sources.d/60-sources.sources
