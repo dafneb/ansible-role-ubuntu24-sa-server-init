@@ -6,7 +6,9 @@ An Ansible role to initial setup of stand-alone Ubuntu 24 server.
 Adjusted settings:
  - disabling cloud-init
  - update of packages via apt
- - adjusting CLI
+ - adjusting message of the day
+ - adjusting local login warning banner
+ - adjusting remote login warning banner
  - adjusting timezone
  - adjusting NTP client (timesyncd, chrony)
 

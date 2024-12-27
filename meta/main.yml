@@ -17,6 +17,7 @@ galaxy_info:
     - server
     - init
     - ubuntu24
+    - ubuntu
 dependencies: []
 
 ...

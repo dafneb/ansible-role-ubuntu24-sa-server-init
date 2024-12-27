@@ -5,4 +5,10 @@
   tags:
     - always
 
+- name: Import tasks for login banners
+  ansible.builtin.import_tasks:
+    file: login_banners_tasks.yml
+  tags:
+    - always
+
 ...
