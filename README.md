@@ -1,5 +1,5 @@
-Role Name
-=========
+Initialization stand-alone server on Ubuntu 24
+==============================================
 
 An Ansible role to initial setup of stand-alone Ubuntu 24 server.
 
