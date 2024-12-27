@@ -28,10 +28,14 @@ updates_autoremove_purge: true
 ## Section: Command line interface (CLI)
 #
 # Message of the day
-motd_msg: Maintained by Ansible
+motd_msg: "Maintained by Ansible"
 motd_path: /etc/motd
 motd_dynamic_erase: true
 motd_dynamic_path: /etc/update-motd.d
+# Login warning
+issue_msg: "Authorized users only. All activity may be monitored and reported."
+local_issue_path: /etc/issue
+remote_issue_path: /etc/issue.net
 ## --------------------------------------------------------
 
 ## --------------------------------------------------------

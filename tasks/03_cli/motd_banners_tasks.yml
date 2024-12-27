@@ -1,7 +1,7 @@
 ---
 - name: "[CLI:] Create message of the day ({{ motd_path }})"
-  ansible.builtin.copy:
-    content: "{{ motd_msg }}"
+  ansible.builtin.template:
+    src: 03_cli/motd.j2
     dest: "{{ motd_path }}"
     mode: '0644'
     owner: root
