@@ -1,5 +1,5 @@
 ---
-- name: "[APT:] Run update_cache (time > {{ updates_cache_valid_time }} seconds)"
+- name: "[APT:] Run update_cache if time > {{ updates_cache_valid_time }}"
   ansible.builtin.apt:
     update_cache: true
     cache_valid_time: "{{ updates_cache_valid_time }}"
