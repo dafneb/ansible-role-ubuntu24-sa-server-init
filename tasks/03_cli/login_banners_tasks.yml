@@ -1,7 +1,7 @@
 ---
-- name: "[CLI:] Create local login banner ({{ local_issue_path }})"
+- name: "03_cli | login_banners_tasks | Create local login banner ({{ local_issue_path }})"
   ansible.builtin.template:
-    src: 03_cli/issue.j2
+    src: "03_cli/issue.j2"
     dest: "{{ local_issue_path }}"
     mode: '0644'
     owner: root
@@ -9,9 +9,9 @@
   tags:
     - always
 
-- name: "[CLI:] Create remote login banner ({{ remote_issue_path }})"
+- name: "03_cli | login_banners_tasks | Create remote login banner ({{ remote_issue_path }})"
   ansible.builtin.template:
-    src: 03_cli/issue.j2
+    src: "03_cli/issue.j2"
     dest: "{{ remote_issue_path }}"
     mode: '0644'
     owner: root

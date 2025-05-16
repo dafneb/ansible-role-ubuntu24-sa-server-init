@@ -1,11 +1,11 @@
 ---
-- name: Import tasks for MOTD
+- name: 03_cli | main | Import tasks for MOTD
   ansible.builtin.import_tasks:
     file: motd_banners_tasks.yml
   tags:
     - always
 
-- name: Import tasks for login banners
+- name: 03_cli | main | Import tasks for login banners
   ansible.builtin.import_tasks:
     file: login_banners_tasks.yml
   tags:

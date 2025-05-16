@@ -1,5 +1,5 @@
 ---
-- name: "[CLOUD-INIT:] Disable cloud-init ({{ cloud_init_disable_path }})"
+- name: "01_cloud_init | cloud_init_tasks | Disable cloud-init ({{ cloud_init_disable_path }})"
   ansible.builtin.file:
     path: "{{ cloud_init_disable_path }}"
     state: touch

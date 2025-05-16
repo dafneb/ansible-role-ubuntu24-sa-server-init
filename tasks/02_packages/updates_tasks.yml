@@ -1,12 +1,12 @@
 ---
-- name: "[APT:] Run update_cache if time > {{ updates_cache_valid_time }}"
+- name: "02_packages | updates_tasks | Run update_cache if time > {{ updates_cache_valid_time }}"
   ansible.builtin.apt:
     update_cache: true
     cache_valid_time: "{{ updates_cache_valid_time }}"
   tags:
     - always
 
-- name: "[APT:] Update all packages to their latest version"
+- name: "02_packages | updates_tasks | Update all packages to their latest version"
   ansible.builtin.apt:
     name: "*"
     state: latest
@@ -14,16 +14,16 @@
   tags:
     - always
 
-- name: "[APT:] Remove useless packages from the cache"
-  ansible.builtin.apt:
-    autoclean: true
-  tags:
-    - always
-
-- name: "[APT:] Remove dependencies that are no longer required"
+- name: "02_packages | updates_tasks | Remove dependencies that are no longer required"
   ansible.builtin.apt:
     autoremove: true
     purge: "{{ updates_autoremove_purge }}"
+  tags:
+    - always
+
+- name: "02_packages | updates_tasks | Remove useless packages from the cache"
+  ansible.builtin.apt:
+    autoclean: true
   tags:
     - always
 

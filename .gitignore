@@ -182,5 +182,5 @@ notes.txt
 # Snyk Security
 .dcignore
 
-# My notes
-notes.txt
+# Ansible
+.ansible/

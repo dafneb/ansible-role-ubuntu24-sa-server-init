@@ -1,12 +1,12 @@
 ---
-- name: "[TIME:] Install required package util-linux-extra"
+- name: "04_time | time_tasks | Install required package util-linux-extra"
   ansible.builtin.apt:
     name: "util-linux-extra"
     state: present
   tags:
     - always
 
-- name: "[TIME:] Change time zone"
+- name: "04_time | time_tasks | Change time zone"
   community.general.timezone:
     name: "{{ time_timezone }}"
   notify:

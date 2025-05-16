@@ -1,5 +1,5 @@
 ---
-- name: Import tasks for packages updates
+- name: "02_packages | main | Import tasks for packages updates"
   ansible.builtin.import_tasks:
     file: updates_tasks.yml
   tags:
