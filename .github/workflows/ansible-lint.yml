@@ -27,4 +27,4 @@ permissions:
 jobs:
   build:
     name: Ansible Lint
-    uses: dafneb/.github/.github/workflows/ansible-lint.yml@1b6bec269c61b9c3d09af73599b355011d3c2963
+    uses: dafneb/.github/.github/workflows/ansible-lint.yml@73cd59b01daa56d6d1db5d99379cb525f9a448a7
